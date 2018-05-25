@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-xs-10">
+      <app-task-list-edit></app-task-list-edit>
+      <hr>
+      <ul class="list-group">
+        <a
+          class="list-group-item"
+          style="cursor: pointer"
+          *ngFor="let task of tasks"
+        >
+          Task: {{ task.name }} / Start Date:  {{ task.startDate }} /
+           End Date: {{ task.endDate }} /  
+           <button class="btn btn-success pull-right">Asign</button>
+           <button class="btn btn-default pull-right">Edit Task</button>
+          <button class="btn btn-danger pull-right">Delete Task</button>
+          <hr>
+          Desription: {{ task.description }}   
+        </a>
+        
+       
+      </ul>
+    </div>
+  </div>
