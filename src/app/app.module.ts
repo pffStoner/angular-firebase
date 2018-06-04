@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { TaskListEditComponent } from './task-list/task-list-edit/task-list-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
+import { EventStartComponent } from './event-list/event-start/event-start.component';
 
 
 
@@ -24,7 +25,8 @@ import { AppRoutingModule } from './app-routing.module';
     TaskListComponent,
     HeaderComponent,
     TaskListEditComponent,
-    DropdownDirective
+    DropdownDirective,
+    EventStartComponent
 
   ],
   imports: [

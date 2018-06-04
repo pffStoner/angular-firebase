@@ -18,8 +18,4 @@ export class EventComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSelected() {
-    this.eventSelected.emit();
-
-  }
 }
