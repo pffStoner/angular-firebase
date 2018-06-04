@@ -9,6 +9,8 @@ import { EventDetailsComponent } from './event-list/event-details/event-details.
 import { TaskListComponent } from './task-list/task-list.component';
 import { HeaderComponent } from './header/header.component';
 import { TaskListEditComponent } from './task-list/task-list-edit/task-list-edit.component';
+import { DropdownDirective } from './shared/dropdown.directive';
+
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import { TaskListEditComponent } from './task-list/task-list-edit/task-list-edit
     TaskListComponent,
     HeaderComponent,
     TaskListEditComponent,
+    DropdownDirective
 
   ],
   imports: [
