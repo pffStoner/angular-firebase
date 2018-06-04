@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Event } from '../../models/event.model';
 
 @Component({
@@ -7,6 +7,7 @@ import { Event } from '../../models/event.model';
   styleUrls: ['./event.component.css']
 })
 export class EventComponent implements OnInit {
+  @Output() eventSelected = new EventEmitter<void>();
   events: Event[] = [
     // tslint:disable-next-line:max-line-length
     new Event('Pohod', 'mnogo hodene', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Bachalpsee_reflection.jpg/300px-Bachalpsee_reflection.jpg'),
@@ -17,5 +18,8 @@ export class EventComponent implements OnInit {
 
   ngOnInit() {
   }
+  onSelected() {
+    this.eventSelected.emit();
 
+  }
 }

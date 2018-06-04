@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { HeaderComponent } from './header/header.component';
 import { TaskListEditComponent } from './task-list/task-list-edit/task-list-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -27,7 +28,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
