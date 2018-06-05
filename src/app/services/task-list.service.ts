@@ -9,19 +9,16 @@ export class TaskListService {
     new Task('bileti', '3 mart' ),
   ];
 
-  getIngredients() {
+  getTasks() {
     return this.tasks.slice();
   }
 
-  addIngredient(task: Task) {
+  addTask(task: Task) {
     this.tasks.push(task);
     this.tasksChanged.emit(this.tasks.slice());
   }
 
-  addIngredients(tasks: Task[]) {
-    // for (let ingredient of ingredients) {
-    //   this.addIngredient(ingredient);
-    // }
+  addTasks(tasks: Task[]) {
     this.tasks.push(...tasks);
     this.tasksChanged.emit(this.tasks.slice());
   }

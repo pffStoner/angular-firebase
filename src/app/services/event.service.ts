@@ -38,6 +38,6 @@ export class EventService {
       }
 
       addTaskToTaskList(tasks: Task[]) {
-        this.tsService.addIngredients(tasks);
+        this.tsService.addTasks(tasks);
       }
 }
