@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EventComponent } from './event-list/event/event.component';
+import { EventsComponent } from './events/events.component';
+import { EventStartComponent } from './events/event-start/event-start.component';
+import { EventEditComponent } from './events/event-edit/event-edit.component';
+import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import { TaskListComponent } from './task-list/task-list.component';
-import { EventListComponent } from './event-list/event-list.component';
-import { EventStartComponent } from './event-list/event-start/event-start.component';
-import { EventDetailsComponent } from './event-list/event-details/event-details.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/events', pathMatch: 'full'},
-    { path: 'events', component: EventListComponent, children: [
+    { path: 'events', component: EventsComponent, children: [
         {path: '', component: EventStartComponent },
-        {path: ':id', component: EventDetailsComponent}
+        {path: 'new', component: EventEditComponent },
+        {path: ':id', component: EventDetailComponent},
+        {path: ':id/edit', component: EventEditComponent}
+
     ] },
     { path: 'tasks', component: TaskListComponent},
 

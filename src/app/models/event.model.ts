@@ -1,5 +1,8 @@
+import { Task } from './task.model';
+
 export class Event {
-    constructor(public name: string, public desctiption: string, public img: string) {
+    constructor(public name: string, public description: string, public img: string,
+         public task: Task[], public date?: string) {
 
     }
 }
