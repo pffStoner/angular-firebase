@@ -17,7 +17,7 @@ export class EventService {
             new Task('kupuvane na hrana', '3 mart'),
         ]),
         // tslint:disable-next-line:max-line-length
-        new Event('Pohod', 'mnogo hodene',
+        new Event('По пътя на кървавото писмо', 'След обявяването на въстанието в града той пише това писмо, с което съобщава на своите съмишленици в Панагюрище, че въстанието е започнало, и го подписва с кръв от убития мюдюрин. Писмото е изпратено на 20 април (стар стил) до Георги Бенковски в Панагюрище. To е пренесено от 19-годишния Георги Салчев, който изминава 5-часовия път от Копривщица до Панагюрище само за 2 часа. Точно преди Панагюрище конят на преносителя на кървавото писмо издъхва от натоварването.',
          'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Bachalpsee_reflection.jpg/300px-Bachalpsee_reflection.jpg',
          [
             new Task('vozene', '1 uni'),
