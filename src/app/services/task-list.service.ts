@@ -15,6 +15,7 @@ export class TaskListService {
 
   addTask(task: Task) {
     this.tasks.push(task);
+    console.log(task);
     this.tasksChanged.next(this.tasks.slice());
   }
 
