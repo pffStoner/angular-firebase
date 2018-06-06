@@ -1,25 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs/Subscription';
+
 import { TaskListService } from '../../services/task-list.service';
 import { Task } from '../../models/task.model';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-task-edit',
   templateUrl: './task-edit.component.html',
   styleUrls: ['./task-edit.component.css']
 })
-export class TaskEditComponent implements OnInit {
-
+export class TaskEditComponent implements OnInit, OnDestroy {
+  @ViewChild('form') tlForm: NgForm;
+  editedItemIndex: number;
+  editedItem: Task;
+  editMode = false;
+  subscribe: Subscription;
 
   constructor(private tsService: TaskListService) { }
 
   ngOnInit() {
+   this.subscribe = this.tsService.startedEditing
+      .subscribe(
+        (index: number) => {
+          this.editedItemIndex = index;
+          this.editMode = true;
+          this.editedItem = this.tsService.getTask(index);
+          this.tlForm.setValue({
+              name: this.editedItem.name,
+              description: this.editedItem.description
+          });
+        }
+      );
   }
 
   onAddItem(form: NgForm) {
    const value = form.value;
-    const newTask = new Task(value.name);
+    const newTask = new Task(value.name, value.description);
     this.tsService.addTask(newTask);
+  }
+  ngOnDestroy() {
+    this.subscribe.unsubscribe();
   }
 
 }

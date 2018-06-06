@@ -2,17 +2,20 @@ import { Task } from '../models/task.model';
 import { Subject } from 'rxjs';
 
 export class TaskListService {
-
+  startedEditing = new Subject<number>();
   tasksChanged = new Subject<Task[]>();
   private tasks: Task[] = [
     new Task('Vozene', '5 uni'),
     new Task('bileti', '3 mart' ),
   ];
 
+  getTask(index: number) {
+    return this.tasks[index];
+  }
+
   getTasks() {
     return this.tasks.slice();
   }
-
   addTask(task: Task) {
     this.tasks.push(task);
     console.log(task);
