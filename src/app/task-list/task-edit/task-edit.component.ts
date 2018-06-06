@@ -34,7 +34,7 @@ export class TaskEditComponent implements OnInit, OnDestroy {
       );
   }
 
-  onAddItem(form: NgForm) {
+  onSubmit(form: NgForm) {
    const value = form.value;
     const newTask = new Task(value.name, value.description);
     if (this.editMode) {
@@ -42,6 +42,8 @@ export class TaskEditComponent implements OnInit, OnDestroy {
     } else {
       this.tsService.addTask(newTask);
     }
+    this.editMode = false;
+    form.reset();
 
   }
   ngOnDestroy() {
