@@ -37,7 +37,12 @@ export class TaskEditComponent implements OnInit, OnDestroy {
   onAddItem(form: NgForm) {
    const value = form.value;
     const newTask = new Task(value.name, value.description);
-    this.tsService.addTask(newTask);
+    if (this.editMode) {
+      this.tsService.updateTask(this.editedItemIndex, newTask);
+    } else {
+      this.tsService.addTask(newTask);
+    }
+
   }
   ngOnDestroy() {
     this.subscribe.unsubscribe();

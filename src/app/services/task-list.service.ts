@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 export class TaskListService {
   startedEditing = new Subject<number>();
   tasksChanged = new Subject<Task[]>();
+
   private tasks: Task[] = [
     new Task('Vozene', '5 uni'),
     new Task('bileti', '3 mart' ),
@@ -25,5 +26,11 @@ export class TaskListService {
   addTasks(tasks: Task[]) {
     this.tasks.push(...tasks);
     this.tasksChanged.next(this.tasks.slice());
+  }
+
+  updateTask(index: number, newTask: Task) {
+  this.tasks[index] = newTask;
+  this.tasksChanged.next(this.tasks.slice());
+
   }
 }
