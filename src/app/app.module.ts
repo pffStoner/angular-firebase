@@ -14,6 +14,7 @@ import { TaskListService } from './services/task-list.service';
 import { EventStartComponent } from './events/event-start/event-start.component';
 import { EventEditComponent } from './events/event-edit/event-edit.component';
 import { EventListComponent } from './events/event-list/event-list.component';
+import { EventService } from './services/event.service';
 
 
 
@@ -42,7 +43,7 @@ import { EventListComponent } from './events/event-list/event-list.component';
     ReactiveFormsModule
 
   ],
-  providers: [TaskListService],
+  providers: [TaskListService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
