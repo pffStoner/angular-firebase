@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Form, FormGroup, FormControl, FormArray } from '@angular/forms';
+import { Form, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { EventService } from '../../services/event.service';
 
 @Component({
@@ -30,10 +30,10 @@ export class EventEditComponent implements OnInit {
   onAddingTask() {
   (<FormArray> this.eventForm.get('tasks')).push(
     new FormGroup({
-      'name': new FormControl(),
-      'description': new FormControl(),
+      'name': new FormControl(null, Validators.required),
+      'description': new FormControl(null, Validators.required  ),
     })
-  )
+  );
   }
 
   private initForm() {
@@ -54,8 +54,8 @@ export class EventEditComponent implements OnInit {
         for (let task of event.task) {
             eventTasks.push(
               new FormGroup({
-                'name': new FormControl(task.name),
-                'description': new FormControl(task.description),
+                'name': new FormControl(task.name, Validators.required),
+                'description': new FormControl(task.description, Validators.required),
               })
             );
         }
@@ -63,9 +63,9 @@ export class EventEditComponent implements OnInit {
   }
   this.eventForm = new FormGroup({
     // trqbva da suvpadat s formControlName v .html
-    'name': new FormControl(eventName),
-    'imgUrl': new FormControl(eventImgPath),
-    'description': new FormControl(description),
+    'name': new FormControl(eventName, Validators.required),
+    'imgUrl': new FormControl(eventImgPath, Validators.required),
+    'description': new FormControl(description, Validators.required),
     'tasks': eventTasks
   });
   }
