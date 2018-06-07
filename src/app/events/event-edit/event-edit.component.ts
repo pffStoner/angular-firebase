@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Form, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { EventService } from '../../services/event.service';
 import { Event } from '../../models/event.model';
@@ -17,7 +17,7 @@ export class EventEditComponent implements OnInit {
   eventForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
-  private eService: EventService) { }
+  private eService: EventService, private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -82,11 +82,15 @@ export class EventEditComponent implements OnInit {
 
     if (this.editMode) {
       // moje da izpolzvame this.eventForm.value, to shte
-      // ni vurne dannite vmesto da pravim newEvent(ako sme gi podredili kakto trqbva)
+      // ni vurne dannite vmesto da pravim newEvent(ako sme gi podredili kakto trqbva  )
       this.eService.updateEvent(this.id, newEvent);
     } else {
       this.eService.addEvent(newEvent);
     }
     console.log(this.eventForm);
+    this.onCancel();
+  }
+  onCancel() {
+    this.router.navigate(['../'], { relativeTo: this.route});
   }
 }

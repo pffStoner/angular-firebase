@@ -9,7 +9,7 @@
           class="btn btn-success"
           [disabled]="!eventForm.valid"
           >Save</button>
-          <button type="submit" class="btn btn-danger">Cancel</button>
+          <button type="submit" class="btn btn-danger" (click)="onCancel()">Cancel</button>
         </div>
       </div>
       <div class="row">

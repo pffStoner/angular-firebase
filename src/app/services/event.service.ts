@@ -53,6 +53,9 @@ export class EventService {
           // zashtoto i predi izpolzvam kopie i sega promenie nqma da se otrazqt bez da gi predam
           // kum event-list, kudeto shte se otbelejat
           this.eventChanged.next(this.events.slice());
-
+      }
+      deleteEvent(index: number) {
+        this.events.splice(index,  1);
+        this.eventChanged.next(this.events.slice());
       }
 }
