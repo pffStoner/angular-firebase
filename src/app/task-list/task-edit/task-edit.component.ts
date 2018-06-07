@@ -44,7 +44,14 @@ export class TaskEditComponent implements OnInit, OnDestroy {
     }
     this.editMode = false;
     form.reset();
-
+  }
+  onClear() {
+    this.editMode = false;
+    this.tlForm.reset();
+  }
+  onDelete() {
+    this.tsService.deleteTasks(this.editedItemIndex);
+    this.onClear();
   }
   ngOnDestroy() {
     this.subscribe.unsubscribe();

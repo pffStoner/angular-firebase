@@ -31,6 +31,11 @@ export class TaskListService {
   updateTask(index: number, newTask: Task) {
   this.tasks[index] = newTask;
   this.tasksChanged.next(this.tasks.slice());
+  }
+
+  deleteTasks(index: number) {
+    this.tasks.splice(index, 1);
+    this.tasksChanged.next(this.tasks.slice());
 
   }
 }
