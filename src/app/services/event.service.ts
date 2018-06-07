@@ -2,11 +2,13 @@ import { Event } from '../models/event.model';
 import { Task } from '../models/task.model';
 import { EventEmitter, Injectable } from '@angular/core';
 import { TaskListService } from './task-list.service';
+import { Subject } from 'rxjs/Subject';
 
 
 @Injectable()
 export class EventService {
     // eventSelected = new EventEmitter<Task>();
+    eventChanged = new Subject();
 
     private events: Event[] = [
         // tslint:disable-next-line:max-line-length
@@ -39,5 +41,18 @@ export class EventService {
 
       addTaskToTaskList(tasks: Task[]) {
         this.tsService.addTasks(tasks);
+      }
+
+      addEvent(event: Event) {
+        this.events.push(event);
+        this.eventChanged.next(this.events.slice());
+      }
+
+      updateEvent(index: number, newEvent: Event) {
+          this.events[index] = newEvent;
+          // zashtoto i predi izpolzvam kopie i sega promenie nqma da se otrazqt bez da gi predam
+          // kum event-list, kudeto shte se otbelejat
+          this.eventChanged.next(this.events.slice());
+
       }
 }

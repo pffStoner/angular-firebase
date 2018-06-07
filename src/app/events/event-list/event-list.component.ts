@@ -18,6 +18,14 @@ export class EventListComponent implements OnInit {
   }
 
   ngOnInit() {
+    // ako se pomeni shte poluchim tuk nov array ot events
+    this.eventService.eventChanged.subscribe(
+        (event: Event[]) => {
+          // prisvoqvame poluchenite eventi na tezi, koito izpolzvame za display
+          this.events = event;
+        }
+    );
+    //
     this.events = this.eventService.getEvents();
   }
 

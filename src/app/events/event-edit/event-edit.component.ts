@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Form, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { EventService } from '../../services/event.service';
+import { Event } from '../../models/event.model';
+
 
 @Component({
   selector: 'app-event-edit',
@@ -61,6 +63,7 @@ export class EventEditComponent implements OnInit {
         }
     }
   }
+  // prisvoqvame poletata ot .html
   this.eventForm = new FormGroup({
     // trqbva da suvpadat s formControlName v .html
     'name': new FormControl(eventName, Validators.required),
@@ -70,6 +73,20 @@ export class EventEditComponent implements OnInit {
   });
   }
   onSubmit() {
+    const newEvent = new Event(
+      this.eventForm.value['name'],
+       this.eventForm.value['description'],
+       this.eventForm.value['imgUrl'],
+       this.eventForm.value['tasks']
+      );
+
+    if (this.editMode) {
+      // moje da izpolzvame this.eventForm.value, to shte
+      // ni vurne dannite vmesto da pravim newEvent(ako sme gi podredili kakto trqbva)
+      this.eService.updateEvent(this.id, newEvent);
+    } else {
+      this.eService.addEvent(newEvent);
+    }
     console.log(this.eventForm);
   }
 }
