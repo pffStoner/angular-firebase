@@ -1,5 +1,9 @@
  import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+
+
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TaskListComponent } from './task-list/task-list.component';
@@ -15,6 +19,7 @@ import { EventStartComponent } from './events/event-start/event-start.component'
 import { EventEditComponent } from './events/event-edit/event-edit.component';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventService } from './services/event.service';
+import { DataStorageService } from './services/data-storage.service';
 
 
 
@@ -40,10 +45,11 @@ import { EventService } from './services/event.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
 
   ],
-  providers: [TaskListService, EventService],
+  providers: [TaskListService, EventService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

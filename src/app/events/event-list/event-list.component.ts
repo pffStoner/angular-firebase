@@ -3,6 +3,9 @@ import { EventService } from '../../services/event.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Event } from '../../models/event.model';
 import { Subscription } from 'rxjs/Subscription';
+import { Response } from '@angular/http';
+import { DataStorageService } from '../../services/data-storage.service';
+
 
 @Component({
   selector: 'app-event-list',
@@ -15,7 +18,8 @@ export class EventListComponent implements OnInit, OnDestroy {
 
   constructor(private eventService: EventService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private dataStorage: DataStorageService) {
 
   }
 
@@ -27,7 +31,6 @@ export class EventListComponent implements OnInit, OnDestroy {
           this.events = event;
         }
     );
-  
     //
     this.events = this.eventService.getEvents();
   }
@@ -35,6 +38,17 @@ export class EventListComponent implements OnInit, OnDestroy {
   onNewEvent() {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
+  onSaveData() {
+    this.dataStorage.storeEvents()
+      .subscribe(
+        (response: Response) => {
+          console.log(response);
+        }
+      );
+    }
+    fetchData() {
+      this.dataStorage.getEvents();
+    }
   ngOnDestroy() {
     this.subscribtion.unsubscribe();
   }

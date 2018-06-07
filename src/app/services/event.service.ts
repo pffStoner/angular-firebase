@@ -31,6 +31,11 @@ export class EventService {
 
       }
 
+      setEvents(events: Event[]) {
+        this.events = events;
+        this.eventChanged.next(this.events.slice());
+
+      }
       getEvents() {
         return this.events.slice();
       }
