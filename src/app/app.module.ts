@@ -20,6 +20,8 @@ import { EventEditComponent } from './events/event-edit/event-edit.component';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventService } from './services/event.service';
 import { DataStorageService } from './services/data-storage.service';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 
@@ -38,7 +40,9 @@ import { DataStorageService } from './services/data-storage.service';
     EventItemComponent,
     TaskEditComponent,
     EventEditComponent,
-    EventListComponent
+    EventListComponent,
+    LoginComponent,
+    RegisterComponent
 
   ],
   imports: [

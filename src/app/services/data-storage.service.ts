@@ -14,10 +14,25 @@ export class DataStorageService {
      this.eService.getEvents());
     }
     getEvents() {
+        // map-vame zashtot moje da ni vurne obekt bez nqkoi poleta i posle da poluchim greshki
+        // pri opit za rabota s tqh
         this.http.get('https://travelnetwork-db40e.firebaseio.com/events.json')
+    /*    .map(
+            (response: Response) => {
+                /// proverqvame dali ima takova property i ako nqma dobavqme prazno,
+                // taka nqma da pravi problemi
+                for (const event of events) {
+                    if (!event['task']) {
+                        event['task'] = [];
+                    }
+                }
+                return events;
+            }
+        )*/
         .subscribe(
             (response: Response) => {
                 const events: Event[] = response.json();
+
                 this.eService.setEvents(events);
             }
         );

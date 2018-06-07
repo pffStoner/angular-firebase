@@ -46,6 +46,7 @@ export class EventListComponent implements OnInit, OnDestroy {
         }
       );
     }
+    // tuk ne ni trbva subscribe, zashtot sme go napravili v service-a
     fetchData() {
       this.dataStorage.getEvents();
     }
