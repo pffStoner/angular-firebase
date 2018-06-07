@@ -93,4 +93,8 @@ export class EventEditComponent implements OnInit {
   onCancel() {
     this.router.navigate(['../'], { relativeTo: this.route});
   }
+  // v .html imame formArrayName="tasks", koito dostupvane i moje da iztriem opredelen el po index
+  onDeleteTask(index: number) {
+    (<FormArray>this.eventForm.get('tasks')).removeAt(index);
+  }
 }
