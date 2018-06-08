@@ -1,8 +1,15 @@
 import * as firebase from 'firebase';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Injectable } from '@angular/core';
 
-
+@Injectable()
 export class AuthService {
     token: string;
+
+constructor(private route: ActivatedRoute,
+    private router: Router) {
+
+    }
 
     register(email: string, password: string) {
         firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -26,6 +33,17 @@ export class AuthService {
         .catch(
             error => console.log(error)
         );
+        // firebase.auth().onAuthStateChanged(function(user) {
+        //     if (user) {
+        //       // User is signed in.
+        //       this.router.navigate(['/events']);
+
+        //     } else {
+        //       // No user is signed in.
+        //             this.router.navigate(['/register']);
+
+        //     }
+        //   });
     }
 
     // iziskvame token koito da polzvame
