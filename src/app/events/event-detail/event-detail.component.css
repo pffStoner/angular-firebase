@@ -6,3 +6,12 @@ img{
 .btn-gallery{
     margin-top: 5px;
 }
+
+.tasks li{
+    display: flex;
+    margin-top: 5px;
+    padding: 13px;
+    align-items: center;
+    justify-content: space-between;
+}
+

@@ -22,6 +22,7 @@ import { EventService } from './services/event.service';
 import { DataStorageService } from './services/data-storage.service';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -53,7 +54,7 @@ import { RegisterComponent } from './auth/register/register.component';
     HttpModule
 
   ],
-  providers: [TaskListService, EventService, DataStorageService],
+  providers: [TaskListService, EventService, DataStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

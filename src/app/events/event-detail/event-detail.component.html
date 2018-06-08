@@ -19,7 +19,6 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-      <hr>
     <div
       class="btn-group"
       appDropdown>
@@ -36,14 +35,16 @@
     </div>
   </div>
 </div>
+<hr>
 
 <div class="row">
-  <div class="col-xs-12">
-    <ul class="list-group">
+  <div class="col-xs-10">
+    <ul class="list-group tasks">
       <li
         class="list-group-item"
         *ngFor="let task of event.task">
-        {{ task.name }} - {{ task.date }}
+        {{ task.name }} - {{ task.description }}
+        <button class="btn btn-success pull-right ">Assign</button>
       </li>
     </ul>
   </div>
