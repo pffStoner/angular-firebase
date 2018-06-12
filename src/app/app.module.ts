@@ -23,6 +23,7 @@ import { DataStorageService } from './services/data-storage.service';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AuthService } from './services/auth.service';
+import { EventGalleryComponent } from './events/event-gallery/event-gallery.component';
 
 
 
@@ -43,7 +44,8 @@ import { AuthService } from './services/auth.service';
     EventEditComponent,
     EventListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EventGalleryComponent
 
   ],
   imports: [

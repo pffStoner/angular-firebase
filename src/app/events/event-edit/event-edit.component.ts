@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Form, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { EventService } from '../../services/event.service';
 import { Event } from '../../models/event.model';
+import { start } from 'repl';
 
 
 @Component({
@@ -42,6 +43,8 @@ export class EventEditComponent implements OnInit {
   let eventName = '';
   let eventImgPath = '';
   let description = '';
+  let startDate = '';
+  let endDate = '';
   // tslint:disable-next-line:prefer-const
   let eventTasks = new FormArray([]);
 
@@ -50,6 +53,9 @@ export class EventEditComponent implements OnInit {
     eventName = event.name;
     eventImgPath = event.img;
     description = event.description;
+    startDate = event.startDate;
+    endDate = event.endDate;
+
     // proverqvame dali imame nqkakva zadachi
     if (event['task']) {
         // tslint:disable-next-line:prefer-const
@@ -69,6 +75,8 @@ export class EventEditComponent implements OnInit {
     'name': new FormControl(eventName, Validators.required),
     'imgUrl': new FormControl(eventImgPath, Validators.required),
     'description': new FormControl(description, Validators.required),
+    'startDate' : new FormControl(startDate, Validators.required),
+    'endDate' : new FormControl(endDate, Validators.required),
     'tasks': eventTasks
   });
   }
@@ -77,7 +85,9 @@ export class EventEditComponent implements OnInit {
       this.eventForm.value['name'],
        this.eventForm.value['description'],
        this.eventForm.value['imgUrl'],
-       this.eventForm.value['tasks']
+       this.eventForm.value['tasks'],
+       this.eventForm.value['startDate'],
+       this.eventForm.value['endDate']
       );
 
     if (this.editMode) {
