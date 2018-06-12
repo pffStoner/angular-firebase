@@ -3,7 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Form, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { EventService } from '../../services/event.service';
 import { Event } from '../../models/event.model';
-import { start } from 'repl';
+// import { start } from 'repl';
 
 
 @Component({
@@ -106,5 +106,9 @@ export class EventEditComponent implements OnInit {
   // v .html imame formArrayName="tasks", koito dostupvane i moje da iztriem opredelen el po index
   onDeleteTask(index: number) {
     (<FormArray>this.eventForm.get('tasks')).removeAt(index);
+  }
+
+  getControls() {
+    return (<FormArray>this.eventForm.get('tasks')).controls;
   }
 }

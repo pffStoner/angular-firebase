@@ -1,3 +1,33 @@
-<p>
-  event-gallery works!
-</p>
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()"> 
+<div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label for="imgUrl">Image URL</label>
+        <input 
+        type="text"
+        id="imgUrl"            
+        formControlName="imgUrl"
+        class="form-control"
+        #imgUrl>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+       <img [src]="imgUrl.value" class="img-responsive" alt="">
+      </div>
+    </div>
+  </div>
+  <button 
+  type="submit" 
+  class="btn btn-success"
+  [disabled]="!eventForm.valid"
+  >Add</button>
+</form>
+
+<div class="row ">
+  <div class="col-md-3 gallery" *ngFor="let img of gallery; let i = index">
+    <img src="{{img.imgUrl}}" alt="">
+  </div>
+</div>

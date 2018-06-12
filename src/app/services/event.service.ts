@@ -3,6 +3,7 @@ import { Task } from '../models/task.model';
 import { EventEmitter, Injectable } from '@angular/core';
 import { TaskListService } from './task-list.service';
 import { Subject } from 'rxjs/Subject';
+import { Gallery } from '../models/gallery.model';
 
 
 @Injectable()
@@ -31,7 +32,7 @@ export class EventService {
 
       }
 
-      setEvents(events: Event[]) {
+        setEvents(events: Event[]) {
         this.events = events;
         this.eventChanged.next(this.events.slice());
 

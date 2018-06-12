@@ -37,5 +37,9 @@ export class EventDetailComponent implements OnInit {
       this.eventService.deleteEvent(this.id);
       this.router.navigate(['/events']);
     }
+    onGallery() {
+      this.router.navigate(['gallery'], {relativeTo: this.route});
+
+    }
 
 }

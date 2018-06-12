@@ -88,7 +88,7 @@
           <div 
           class="row" 
           style="margin-top: 10px"
-          *ngFor="let taskCtrl of eventForm.get('tasks').controls; let i = index"
+          *ngFor="let taskCtrl of getControls(); let i = index"
           [formGroupName]="i">
             <div class="col-xs-8">
               <input 

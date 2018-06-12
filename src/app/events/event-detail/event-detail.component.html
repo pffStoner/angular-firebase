@@ -10,7 +10,7 @@
       alt="{{ event.name }}"
       class="img-responsive"
       style="max-height: 300px;">
-      <button class="btn btn-success btn-block btn-sm btn-gallery">Gallery</button>
+      <button class="btn btn-success btn-block btn-sm btn-gallery" (click)="onGallery()">Gallery</button>
       <p>start data: {{ event.startDate }}</p>
       <p>end date: {{ event.endDate }}</p>
 </div>

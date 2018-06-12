@@ -7,6 +7,7 @@ import { EventDetailComponent } from './events/event-detail/event-detail.compone
 import { TaskListComponent } from './task-list/task-list.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { EventGalleryComponent } from './events/event-gallery/event-gallery.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/events', pathMatch: 'full'},
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
         {path: '', component: EventStartComponent },
         {path: 'new', component: EventEditComponent },
         {path: ':id', component: EventDetailComponent},
-        {path: ':id/edit', component: EventEditComponent}
+        {path: ':id/edit', component: EventEditComponent},
+        {path: ':id/gallery', component: EventGalleryComponent}
 
     ] },
     { path: 'tasks', component: TaskListComponent},
